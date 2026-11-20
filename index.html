@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b24">
+  <title>Hub de Micromovilidad Sostenible | Prototipo digital</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Hub de Micromovilidad, inicio">
+      <span class="brand-mark" aria-hidden="true">H</span>
+      <span>HUB<span class="brand-light"> / MICROMOVILIDAD</span></span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#estacion">La estación</a><a href="#simulador">Simulador</a><a href="#energia">Energía</a><a href="#estado">Estado del proyecto</a>
+    </nav>
+    <span class="prototype-label"><i></i> PROTOTIPO DIGITAL</span>
+  </header>
+
+  <main id="inicio">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">INGENIERÍA ELECTROMECÁNICA · MVP 01</p>
+        <h1>Una estación de apoyo,<br><em>alimentada por el sol.</em></h1>
+        <p class="hero-lede">Representación digital del Hub de Micromovilidad Sostenible: energía fotovoltaica, almacenamiento y servicios de apoyo para quienes se mueven en bicicleta y otros vehículos livianos.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#simulador">Probar simulación <span aria-hidden="true">↘</span></a><a class="text-link" href="#estacion">Explorar la estación <span aria-hidden="true">→</span></a></div>
+        <p class="disclaimer"><span aria-hidden="true">ⓘ</span> Los valores son supuestos demostrativos. No hay conexión con hardware físico.</p>
+      </div>
+      <div class="hero-art" aria-label="Ilustración esquemática de una estación integral de micromovilidad" role="img">
+        <div class="sun"></div><div class="sun-ray ray-a"></div><div class="sun-ray ray-b"></div>
+        <div class="solar-panel"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="station-shadow"></div>
+        <div class="station">
+          <div class="station-cap"></div><div class="station-screen"><span class="screen-dot"></span><span class="screen-line"></span><span class="screen-line short"></span><b>30.0 <small>PSI</small></b></div>
+          <div class="station-label">HUB <small>MICROMOVILIDAD</small></div>
+          <div class="station-port"><span></span><span></span></div><div class="station-door"><div class="tool-icons">⌁<br>⌁<br>⌁</div><span class="door-handle"></span></div>
+          <div class="station-base"></div>
+        </div>
+        <div class="wheel wheel-back"><div class="spokes"></div></div><div class="wheel wheel-front"><div class="spokes"></div></div><div class="bike-frame"></div><div class="bike-frame frame-two"></div><div class="bike-seat"></div><div class="bike-handle"></div>
+        <div class="art-tag tag-solar"><span>☼</span> Generación solar</div><div class="art-tag tag-air"><span>◉</span> Inflado asistido</div><div class="art-tag tag-usb"><span>⌁</span> Carga USB</div>
+        <div class="art-caption">ESQUEMA CONCEPTUAL · NO A ESCALA</div>
+      </div>
+    </section>
+
+    <section class="metrics-strip shell" aria-label="Resumen del prototipo">
+      <div><span class="metric-icon">☼</span><span><b id="strip-panel">120 Wp</b><small>panel fotovoltaico supuesto</small></span></div>
+      <div><span class="metric-icon">▰</span><span><b id="strip-battery">240 Wh</b><small>capacidad nominal de batería</small></span></div>
+      <div><span class="metric-icon">◉</span><span><b id="strip-compressor">150 W</b><small>potencia del compresor supuesto</small></span></div>
+      <div class="status-chip"><span class="pulse"></span> Simulación local activa</div>
+    </section>
+
+    <section class="section shell" id="estacion">
+      <div class="section-heading"><div><p class="eyebrow">01 / SISTEMA INTEGRAL</p><h2>Una estación, varios servicios.</h2></div><p>El MVP prioriza la lógica energética y el servicio de inflado. Los demás módulos se muestran como parte de la propuesta del anteproyecto.</p></div>
+      <div class="system-grid">
+        <article class="component-card component-feature"><div class="component-top"><span class="component-icon green-icon">◉</span><span class="state-pill state-live">SIMULADO</span></div><h3>Inflado de neumáticos</h3><p>Compresor representado mediante un ciclo de inflado que estima duración y consumo según el cambio de presión.</p><div class="mini-schematic"><span class="mini-compressor">COMPRESOR</span><span class="air-line"></span><span class="mini-tire">◉</span></div><small>Presión en PSI · consumo energético en Wh</small></article>
+        <article class="component-card"><div class="component-top"><span class="component-icon sun-icon">☼</span><span class="state-pill state-model">MODELO</span></div><h3>Generación fotovoltaica</h3><p>Panel solar y controlador representados en el balance de energía diario estimado.</p><div class="mini-solar"><span>☼</span><div><i></i><i></i><i></i></div><b>PV</b></div><small>Potencia pico × horas sol × rendimiento</small></article>
+        <article class="component-card"><div class="component-top"><span class="component-icon battery-icon">▰</span><span class="state-pill state-model">MODELO</span></div><h3>Almacenamiento en batería</h3><p>El estado de carga baja durante cada ciclo de inflado simulado y se limita por una reserva configurable.</p><div class="battery-visual"><span id="battery-visual-fill"></span><b id="battery-visual-label">80%</b></div><small>Batería AGM · capacidad nominal configurable</small></article>
+        <article class="component-card planned-card"><div class="component-top"><span class="component-icon tools-icon">⚒</span><span class="state-pill state-pending">PREVISTO</span></div><h3>Herramientas de usuario</h3><p>Módulo “Pit Stop” para mantenimiento mecánico básico, contemplado en el diseño integral.</p><div class="tool-set"><span>Llave</span><span>Palancas</span><span>Kit básico</span></div><small>Representación visual · sin interacción funcional</small></article>
+        <article class="component-card planned-card"><div class="component-top"><span class="component-icon usb-icon">⌁</span><span class="state-pill state-pending">PREVISTO</span></div><h3>Puertos USB protegidos</h3><p>Puntos de carga para dispositivos, incluidos en la propuesta y en las cargas a dimensionar.</p><div class="usb-ports"><span>USB-A</span><span>USB-C</span><i></i><i></i></div><small>Representación visual · sin salida eléctrica real</small></article>
+      </div>
+    </section>
+
+    <section class="sim-section" id="simulador">
+      <div class="shell">
+        <div class="section-heading light-heading"><div><p class="eyebrow">02 / CICLO DE SERVICIO</p><h2>Simula un inflado.</h2></div><p>Define una condición inicial y un objetivo. El modelo representa el avance y calcula el tiempo y la energía estimados.</p></div>
+        <div class="sim-layout">
+          <form class="sim-controls" id="sim-form">
+            <div class="form-title"><span class="step-number">A</span><div><h3>Condición del neumático</h3><p>Parámetros editables de demostración</p></div></div>
+            <label for="initial-pressure">Presión inicial <span>PSI</span></label><div class="input-wrap"><input id="initial-pressure" type="number" min="0" max="120" step="1" value="25" required><span>PSI</span></div>
+            <label for="target-pressure">Presión objetivo <span>PSI</span></label><div class="input-wrap"><input id="target-pressure" type="number" min="1" max="120" step="1" value="45" required><span>PSI</span></div>
+            <div class="form-hint">El objetivo debe ser mayor que la presión inicial. Consulta siempre el rango indicado en el neumático real.</div>
+            <div class="form-divider"></div>
+            <div class="form-title compact"><span class="step-number">B</span><div><h3>Supuestos del compresor</h3><p>Se pueden ajustar para explorar escenarios</p></div></div>
+            <div class="dual-fields"><div><label for="compressor-power">Potencia <span>W</span></label><div class="input-wrap"><input id="compressor-power" type="number" min="1" max="2000" value="150"><span>W</span></div></div><div><label for="pressure-rate">Ritmo de inflado <span>PSI/min</span></label><div class="input-wrap"><input id="pressure-rate" type="number" min="0.1" max="100" step="0.1" value="8"><span>PSI/min</span></div></div></div>
+            <button class="button button-primary run-button" id="run-simulation" type="submit"><span>▶</span> Iniciar simulación</button>
+            <button class="reset-button" id="reset-battery" type="button">Restablecer carga inicial de batería</button>
+            <p class="simulation-note">Cálculo simplificado: potencia constante × duración estimada.</p>
+          </form>
+          <div class="sim-display" aria-live="polite">
+            <div class="display-header"><div><span class="live-mark"></span><span id="simulation-state">LISTO PARA SIMULAR</span></div><span class="display-label">PRESIÓN DEL NEUMÁTICO</span></div>
+            <div class="pressure-readout"><strong id="current-pressure">25.0</strong><span>PSI</span><span class="pressure-target">OBJETIVO <b id="target-readout">45</b> PSI</span></div>
+            <div class="progress-track"><div id="pressure-progress"></div><span class="progress-tick"></span></div>
+            <div class="progress-labels"><span>Inicial <b id="initial-readout">25 PSI</b></span><span>Progreso <b id="progress-percent">0%</b></span><span>Objetivo <b id="target-label">45 PSI</b></span></div>
+            <div class="result-grid"><div><span class="result-icon">◷</span><small>TIEMPO ESTIMADO</small><b id="time-result">— <small>min</small></b></div><div><span class="result-icon">ϟ</span><small>ENERGÍA DEL CICLO</small><b id="energy-result">— <small>Wh</small></b></div><div><span class="result-icon">▰</span><small>BATERÍA RESTANTE</small><b id="soc-result">80 <small>%</small></b></div></div>
+            <div class="result-message" id="result-message"><span>◎</span><p>Configura los valores y ejecuta la simulación para ver el resultado.</p></div>
+            <div class="sim-actions"><button class="secondary-action" id="download-summary" type="button">↓ Descargar resumen del escenario</button><button class="secondary-action" type="button" onclick="window.print()">Imprimir / guardar como PDF</button></div>
+            <div class="display-foot"><span>MODELO CONCEPTUAL · SIN MEDICIÓN FÍSICA</span><span id="cycle-counter">CICLOS SIMULADOS: 0</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="energia">
+      <div class="section-heading"><div><p class="eyebrow">03 / BALANCE ENERGÉTICO</p><h2>Del sol a la batería.</h2></div><p>Estimación diaria transparente con parámetros configurables. No sustituye el dimensionamiento fotovoltaico del proyecto.</p></div>
+      <div class="energy-layout">
+        <div class="energy-panel">
+          <div class="energy-panel-heading"><div><span class="component-icon sun-icon">☼</span><div><h3>Escenario solar</h3><p>Parámetros de entrada supuestos</p></div></div><span class="state-pill state-model">EDITABLE</span></div>
+          <div class="energy-input-grid">
+            <label for="panel-power">Panel fotovoltaico <span>Wp</span><div class="input-wrap"><input id="panel-power" type="number" min="1" max="2000" value="120"><span>Wp</span></div></label>
+            <label for="sun-hours">Horas sol pico <span>h/día</span><div class="input-wrap"><input id="sun-hours" type="number" min="0" max="12" step="0.1" value="4"><span>h/día</span></div></label>
+            <label for="pv-efficiency">Rendimiento global <span>%</span><div class="input-wrap"><input id="pv-efficiency" type="number" min="1" max="100" value="75"><span>%</span></div></label>
+            <label for="battery-capacity">Batería nominal <span>Wh</span><div class="input-wrap"><input id="battery-capacity" type="number" min="1" max="10000" value="240"><span>Wh</span></div></label>
+            <label for="initial-soc">Carga inicial <span>%</span><div class="input-wrap"><input id="initial-soc" type="number" min="0" max="100" value="80"><span>%</span></div></label>
+            <label for="reserve-soc">Reserva mínima <span>%</span><div class="input-wrap"><input id="reserve-soc" type="number" min="0" max="99" value="20"><span>%</span></div></label>
+          </div>
+          <p class="assumption-note"><b>Supuestos iniciales:</b> panel de 120 Wp, 4 horas sol pico/día, rendimiento global 75 %, batería de 12 V / 20 Ah (240 Wh nominales) y reserva mínima del 20 %. Valores ilustrativos, no seleccionados ni validados para el prototipo físico.</p>
+          <button class="secondary-action reset-assumptions" id="reset-assumptions" type="button">Restablecer valores ilustrativos</button>
+        </div>
+          <div class="energy-results">
+          <div class="energy-result-card solar-result"><span class="result-icon">☼</span><small>GENERACIÓN SOLAR ESTIMADA</small><b id="daily-generation">360 <small>Wh/día</small></b><p>Panel × horas sol pico × rendimiento</p><div class="energy-bar" role="progressbar" aria-label="Generación relativa a la capacidad nominal de batería" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="generation-bar"></i></div><span class="bar-caption">barra limitada a 1× capacidad nominal</span></div>
+          <div class="energy-result-card consumption-result"><span class="result-icon">ϟ</span><small>CONSUMO DEL ÚLTIMO CICLO</small><b id="cycle-consumption">0.00 <small>Wh</small></b><p>Potencia del compresor × tiempo de inflado</p><div class="energy-bar" role="progressbar" aria-label="Consumo del ciclo como proporción de la generación solar diaria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="consumption-bar"></i></div><span class="bar-caption">proporción de la generación diaria</span></div>
+          <div class="energy-result-card autonomy-result"><span class="result-icon">↻</span><small>CICLOS DESDE CARGA ACTUAL*</small><b id="cycles-available">— <small>ciclos</small></b><p>Hasta alcanzar la reserva configurada</p></div>
+          <div class="energy-result-card daily-cycles-result"><span class="result-icon">☀</span><small>EQUIVALENTE SOLAR TEÓRICO*</small><b id="solar-equivalent-cycles">57,6 <small>ciclos/día</small></b><p>Generación diaria ÷ energía de un inflado</p></div>
+          <div class="energy-caveat">*Estimación teórica con consumo constante. No contempla pérdidas transitorias, envejecimiento, temperatura ni otros consumos. Herramientas y USB están pendientes y no se incluyen aún en el balance.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-status" id="estado"><div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">04 / AVANCE DEL MVP</p><h2>Estado del proyecto.</h2></div><p>El prototipo digital conserva el alcance integral del anteproyecto y separa lo que ya se puede demostrar de lo previsto para las siguientes etapas.</p></div>
+      <div class="status-columns"><article class="status-column done"><h3><span>✓</span> Implementado en la interfaz</h3><ul><li>Representación conceptual de la estación integral</li><li>Controles y visualización en español con unidades</li><li>Cálculo energético transparente con entradas editables</li></ul></article><article class="status-column modeled"><h3><span>≈</span> Simulado en el MVP</h3><ul><li>Progreso de inflado entre presión inicial y objetivo</li><li>Tiempo idealizado de inflado y consumo del compresor</li><li>Generación solar diaria, descarga de batería y ciclos estimados</li></ul></article><article class="status-column pending"><h3><span>○</span> Pendiente para futuras etapas</h3><ul><li>Módulo funcional de herramientas “Pit Stop”</li><li>Puertos USB y su consumo en el balance energético</li><li>Dimensionamiento validado y conexión con componentes físicos</li></ul></article></div>
+      <div class="method-note"><span>NOTA METODOLÓGICA</span><p>La simulación usa relaciones energéticas simplificadas para facilitar la demostración. La presión real, el caudal, la potencia efectiva, la capacidad útil de la batería y la irradiación deben medirse o definirse con fichas técnicas y pruebas del prototipo.</p></div>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="shell"><a class="brand footer-brand" href="#inicio"><span class="brand-mark">H</span><span>HUB<span class="brand-light"> / MICROMOVILIDAD</span></span></a><p>Prototipo digital académico · Estación electromecánica autónoma para micromovilidad</p><span>BOGOTÁ · 2026</span></div></footer>
+</body>
+</html>
+
